@@ -1,0 +1,61 @@
+{% extends "theme.html" %}
+{% block title %}Coffee House{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="menu-content wrapper">
+        <h2 class="page-title">Menu</h2>
+        <p>
+            集中力をあげる地中海食を提供するCoffee House。魚介類の食材を利用したメニューが特徴です。
+            ブレンドコーヒーには厳選されたモカ豆を使用。地中海食、美味しいコーヒー、落ち着いた空間でより質の高い仕事や勉強が出来るでしょう。
+        </p>
+    </div><!-- /.menu-content -->
+{% endblock %}
+{% block content2 %}
+    <div class="wrapper grid">
+        <div class="item">
+            <img src="/static/images/menu1.jpg" alt="">
+            <p>コーヒーセット</p>
+        </div>
+        <div class="item">
+            <img src="/static/images/menu2.jpg" alt="">
+            <p>カフェラテ</p>
+        </div>
+        <div class="item">
+            <img src="/static/images/menu3.jpg" alt="">
+            <p>パンケーキ</p>
+        </div>
+        <div class="item">
+            <img src="/static/images/menu4.jpg" alt="">
+            <p>スープ</p>
+        </div>
+        <div class="item">
+            <img src="/static/images/menu5.jpg" alt="">
+            <p>サラダ</p>
+        </div>
+        <div class="item">
+            <img src="/static/images/menu6.jpg" alt="">
+            <p>牡蠣</p>
+            </div>
+        <div class="item">
+            <img src="/static/images/menu7.jpg" alt="">
+            <p>トムヤムクン</p>
+        </div>
+        <div class="item">
+            <img src="/static/images/menu8.jpg" alt="">
+            <p>海鮮パスタ</p>
+        </div>
+        <div class="item">
+            <img src="/static/images/menu9.jpg" alt="">
+            <p>ラズベリーケーキ</p>
+        </div>
+    </div><!-- /.grid -->
+{% endblock %}
+{% block footer %}
+    <footer>
+        <div class="wrapper">
+            <p><small>&copy; Coffee House</small></p>
+        </div>
+    </footer>
+{% endblock %}
