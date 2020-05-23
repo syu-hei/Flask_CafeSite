@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 
 
 app = Flask(__name__)
@@ -28,6 +28,17 @@ def contact():
      return render_template('contact.html', id="contact")
 
 
+
+@app.route('/review', methods=['GET'])
+def review():
+     return render_template('review.html', id="review")
+
+
+
+@app.route('/review', methods=['POST'])
+def view_board():
+     if request.form['username'] and request.form['star'] and request.form['review']:
+          return render_template('review.html',  username=request.form['username'], star=request.form['star'], review=request.form['review'])
 
 
 
