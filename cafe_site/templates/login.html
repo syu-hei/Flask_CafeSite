@@ -1,0 +1,29 @@
+{% extends "theme.html" %}
+{% block title %}Coffee House{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert">
+  <font color="red">
+    <p>※{{ message }}</p>
+  </font>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block content2 %}
+<form action="{{ url_for('login') }}" method=post>
+  <div>
+    <label for="InputTitle">ユーザ名</label>
+    <input type="text" id="InputTitle" name=username>
+  </div>
+
+  <div>
+    <label for="InputPassword">パスワード</label>
+    <input type="password" id="InputPassword" name=password>
+  </div>
+    <input type="submit" class="button" value="ログイン">
+</form>
+{% endblock %}

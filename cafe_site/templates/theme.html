@@ -21,10 +21,18 @@
                 <h1><a href="/"><img class="logo" src="/static/images/logo.svg" alt="Coffee House ホーム"></a></h1>
                 <nav>
                     <ul class="main-nav">
+                        {% if not session.logged_in %}
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/login">login</a></li>
+                        {% else %}
                         <li><a href="/news">News</a></li>
                         <li><a href="/menu">Menu</a></li>
                         <li><a href="/contact">Contact</a></li>
                         <li><a href="/review">Review</a></li>
+                        <li><a href="/logout">logout</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </header>
