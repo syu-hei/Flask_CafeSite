@@ -1,3 +1,5 @@
+SQLALCHEMY_DATABASE_URI = 'sqlite:///cafe_site.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
 DEBUG = True
 SECRET_KEY = 'secret key'
 USERNAME = 'john'
