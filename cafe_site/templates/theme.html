@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        {% block head %}
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="ワーキングスペースを提供するカフェ">
+        <link rel="icon" type="image/png" href="/static/images/favicon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+        <link href="/static/style.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+
+    <body>
+        <div id="{{ id }}" class="big-bg">
+            <header class="page-header wrapper">
+                <h1><a href="/"><img class="logo" src="/static/images/logo.svg" alt="Coffee House ホーム"></a></h1>
+                <nav>
+                    <ul class="main-nav">
+                        {% if not session.logged_in %}
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/login">login</a></li>
+                        {% else %}
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/reviews/new">review</a></li>
+                        <li><a href="/board">board</a></li>
+                        <li><a href="/logout">logout</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </header>
+            {% for message in get_flashed_messages() %}
+                <div class="alert">
+                  <font color="red">
+                    <p>※{{ message }}</p>
+                  </font>
+                </div>
+            {% endfor %}
+            {% block content %}
+            {% endblock %}
+        </div>
+        {% block content2 %}
+        {% endblock %}
+        {% block footer %}
+        {% endblock %}
+    </body>
+</html>

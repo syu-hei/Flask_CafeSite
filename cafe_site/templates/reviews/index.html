@@ -1,0 +1,46 @@
+{% extends "theme.html" %}
+{% block title %}Coffee House{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+  <h2 class="page-title">board</h2>
+  {% for review in reviews %}
+  <div class="card bg-transparent">
+    <div class="card-body">
+      {% if review.star == 1 %}
+      <h5 class="card-title">rating : <img src="/static/images/star.png" width="15" height="15"></h5>
+      {% endif %}
+      {% if review.star  == 2 %}
+      <h5 class="card-title">rating : <img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"></h5>
+      {% endif %}
+      {% if review.star == 3 %}
+      <h5 class="card-title">rating : <img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"></h5>
+      {% endif %}
+      {% if review.star == 4 %}
+      <h5 class="card-title">rating : <img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"></h5>
+      {% endif %}
+      {% if review.star == 5 %}
+      <h5 class="card-title">rating : <img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"><img src="/static/images/star.png" width="15" height="15"></h5>
+      {% endif %}
+      <h5 class="card-subtitle">{{ review.title }}</h5>
+      <a class="card-link" href="{{ url_for('show_review', id=review.id) }}" >続きを読む</a>
+    </div>
+  </div>
+      {% else %}
+        投稿がありません
+      {% endfor %}
+</div>
+{% endblock %}
+{% block footer %}
+    <footer>
+        <div class="wrapper">
+            <p><small>&copy; Coffee House</small></p>
+        </div>
+    </footer>
+{% endblock %}
