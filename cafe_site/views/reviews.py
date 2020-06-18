@@ -10,7 +10,7 @@ review = Blueprint('review', __name__)
 @review.route('/board')
 @login_required
 def show_reviews():
-    reviews = Review.query.order_by(Review.id.desc()).all()
+    reviews = Review.query.filter_by(user_id=session['user_id'])
     return render_template('reviews/index.html', reviews=reviews, id="board")
 
 
@@ -21,7 +21,8 @@ def add_review():
     review = Review(
         star=request.form['star'],
         title=request.form['title'],
-        text=request.form['text']
+        text=request.form['text'],
+        user_id=session['user_id']
     )
     db.session.add(review)
     db.session.commit()
@@ -41,6 +42,9 @@ def new_review():
 @login_required
 def show_review(id):
     review = Review.query.get(id)
+    if review.user_id != session['user_id']:
+        flash('不正な操作が行われました')
+        return redirect(url_for('review.show_reviews'))
     return render_template('reviews/show.html', review=review, id="show")
 
 
@@ -48,6 +52,9 @@ def show_review(id):
 @login_required
 def edit_review(id):
     review = Review.query.get(id)
+    if review.user_id != session['user_id']:
+        flash('不正な操作が行われました')
+        return redirect(url_for('review.show_reviews'))
     return render_template('reviews/edit.html', review=review)
 
 
@@ -55,6 +62,9 @@ def edit_review(id):
 @login_required
 def update_review(id):
     review = Review.query.get(id)
+    if review.user_id != session['user_id']:
+        flash('不正な操作が行われました')
+        return redirect(url_for('review.show_reviews'))
     review.star = request.form['star']
     review.title = request.form['title']
     review.text = request.form['text']
@@ -68,6 +78,9 @@ def update_review(id):
 @login_required
 def delete_review(id):
     review = Review.query.get(id)
+    if review.user_id != session['user_id']:
+        flash('不正な操作が行われました')
+        return redirect(url_for('review.show_reviews'))
     db.session.delete(review)
     db.session.commit()
     flash('投稿が削除されました')

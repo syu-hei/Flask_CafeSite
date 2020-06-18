@@ -14,3 +14,6 @@ app.register_blueprint(loging)
 
 from cafe_site.views.reviews import review
 app.register_blueprint(review, url_prefix='/users')
+
+from cafe_site.views.users import user
+app.register_blueprint(user)

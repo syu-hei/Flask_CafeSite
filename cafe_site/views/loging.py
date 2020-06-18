@@ -1,6 +1,8 @@
 from flask import request, redirect, url_for, render_template, flash, session
 from cafe_site import app
 from functools import wraps
+from cafe_site.models.users import User
+import bcrypt
 from flask import Blueprint
 
 loging = Blueprint('loging', __name__)
@@ -18,12 +20,18 @@ def login_required(loging):
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != app.config['USERNAME']:
+        try:
+            user = User.query.filter_by(username=request.form['username']).first()
+        except:
             flash('ユーザ名が異なります')
-        elif request.form['password'] != app.config['PASSWORD']:
+            return render_template('login.html')
+        if request.form['username'] != user.username:
+            flash('ユーザ名が異なります')
+        elif bcrypt.hashpw(request.form['password'].encode(), user.salt.encode()).decode() != user.password:
             flash('パスワードが異なります')
         else:
             session['logged_in'] = True
+            session['user_id'] = user.id
             flash('ログインしました')
             return redirect(url_for('review.show_reviews'))
     return render_template('login.html', id="login")

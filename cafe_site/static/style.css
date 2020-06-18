@@ -423,6 +423,12 @@ input[type="password"] {
     font-weight: normal;
 }
 
+/* ********************
+    user
+******************** */
+#user {
+    background-image: url(./images/user-bg.jpg);
+    min-height: 100vh;
 
 /* ********************
     フッター
