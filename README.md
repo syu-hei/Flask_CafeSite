@@ -9,4 +9,4 @@ URL : https://cryptic-refuge-64692.herokuapp.com/
 ## back End
 •Flask  
 •Gunicorn  
-•heroku
+•Heroku
