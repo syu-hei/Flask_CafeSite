@@ -8,5 +8,6 @@ URL : https://cryptic-refuge-64692.herokuapp.com/
 •font awesome
 ## back End
 •Flask  
+•Postgresql
 •Gunicorn  
 •Heroku
