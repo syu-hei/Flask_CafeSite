@@ -1,13 +1,20 @@
 from cafe_site import db
 from datetime import datetime
 import bcrypt
+<<<<<<< HEAD
 import pdb
+=======
+>>>>>>> future/database
 
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50))
+<<<<<<< HEAD
     password = db.Column(db.String(50))
+=======
+    password = db.Column(db.String(100))
+>>>>>>> future/database
     salt = db.Column(db.String(50))
     created_at = db.Column(db.DateTime)
 
