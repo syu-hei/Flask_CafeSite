@@ -22,20 +22,29 @@
                 <nav>
                     <ul class="main-nav">
                         {% if not session.logged_in %}
-                        <li><a href="/news">News</a></li>
-                        <li><a href="/menu">Menu</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                        <li><a href="/login">login</a></li>
+                        <li><a href="{{ url_for('cafe.news') }}">News</a></li>
+                        <li><a href="{{ url_for('cafe.menu') }}">Menu</a></li>
+                        <li><a href="{{ url_for('cafe.contact') }}">Contact</a></li>
+                        <li><a href="{{ url_for('loging.login') }}">login</a></li>
+                        <li><a href="{{ url_for('user.new_user') }}">Signup</a></li>
                         {% else %}
-                        <li><a href="/news">News</a></li>
-                        <li><a href="/menu">Menu</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                        <li><a href="/review">Review</a></li>
-                        <li><a href="/logout">logout</a></li>
+                        <li><a href="{{ url_for('cafe.news') }}">News</a></li>
+                        <li><a href="{{ url_for('cafe.menu') }}">Menu</a></li>
+                        <li><a href="{{ url_for('cafe.contact') }}">Contact</a></li>
+                        <li><a href="{{ url_for('review.new_review') }}">review</a></li>
+                        <li><a href="{{ url_for('review.show_reviews') }}">board</a></li>
+                        <li><a href="{{ url_for('loging.logout') }}">logout</a></li>
                         {% endif %}
                     </ul>
                 </nav>
             </header>
+            {% for message in get_flashed_messages() %}
+                <div class="alert">
+                  <font color="red">
+                    <p>※{{ message }}</p>
+                  </font>
+                </div>
+            {% endfor %}
             {% block content %}
             {% endblock %}
         </div>

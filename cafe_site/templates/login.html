@@ -4,26 +4,27 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
-{% for message in get_flashed_messages() %}
-<div class="alert">
-  <font color="red">
-    <p>※{{ message }}</p>
-  </font>
+<div class="wrapper">
+  <h2 class="page-title">Login</h2>
 </div>
-{% endfor %}
+<div class="login-content wrapper">
+  <form action="{{ url_for('loging.login') }}" method=post>
+    <div>
+      <label for="name">ユーザ名</label>
+      <input placeholder="username" type="text" name=username>
+    </div>
+    <div>
+      <label for="Password">パスワード</label>
+      <input placeholder="password" type="password" name=password>
+    </div>
+      <input type="submit" class="button" value="ログイン">
+  </form>
+</div>
 {% endblock %}
-
-{% block content2 %}
-<form action="{{ url_for('login') }}" method=post>
-  <div>
-    <label for="InputTitle">ユーザ名</label>
-    <input type="text" id="InputTitle" name=username>
-  </div>
-
-  <div>
-    <label for="InputPassword">パスワード</label>
-    <input type="password" id="InputPassword" name=password>
-  </div>
-    <input type="submit" class="button" value="ログイン">
-</form>
+{% block footer %}
+    <footer>
+        <div class="wrapper">
+            <p><small>&copy; Coffee House</small></p>
+        </div>
+    </footer>
 {% endblock %}
