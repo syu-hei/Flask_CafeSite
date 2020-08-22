@@ -20,5 +20,5 @@ URL : https://cryptic-refuge-64692.herokuapp.com/
 •configファイルで設定を1つにまとめる機能(databaseURL, シークレットキーなど)  
 •機能別アプリケーション分割(cafe, loging, review, users)  
 •メッセージ機能('ログインしました' などのユーザーメッセージの表示)  
-## 作成したアプリケーションの説明
+## 作成工程の説明
 https://qiita.com/syu-hei/items/ac7ed49f1f383aa1dd7c
