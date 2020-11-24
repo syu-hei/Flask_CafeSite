@@ -1,12 +1,12 @@
 # Flask-CafeSite
 URL : https://cryptic-refuge-64692.herokuapp.com/  
   
-## フロント側
+## フロントエンド
 •HTML/CSS  
 •jinja2  
 •bootstrap  
 •font awesome
-## サーバー側
+## バックエンド
 •Flask  
 •Postgresql & Sqlite  
 •Gunicorn  
