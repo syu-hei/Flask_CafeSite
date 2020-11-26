@@ -1,2 +1,5 @@
+*.js linguist-language=Java
 
-Flask-CafeSite/* linguist-vendored
+*.txt linguist-language=Java
+
+src/Stubs/html_assets/* linguist-vendored
