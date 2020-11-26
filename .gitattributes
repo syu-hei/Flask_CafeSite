@@ -1,5 +1,0 @@
-*.js linguist-language=Java
-
-*.txt linguist-language=Java
-
-src/Stubs/html_assets/* linguist-vendored
