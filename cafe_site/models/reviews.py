@@ -3,7 +3,7 @@ from datetime import datetime
 
 class Review(db.Model):
     from cafe_site.models.users import User
-    __tablename__ = 'Reviews'
+    __tablename__ = 'reviews'
     id = db.Column(db.Integer, primary_key=True)
     star = db.Column(db.Integer)
     title = db.Column(db.String(50), unique=True)
